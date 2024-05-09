@@ -30,7 +30,7 @@ namespace MatchGame
 
 		private void SetUpGame()
 		{
-			List<string> animalEmoji = new List<string>()
+			List<string> emoji = new List<string>()
 			{
 			"ᓚᘏᗢ","ᓚᘏᗢ",
 			"(╯°□°）╯︵ ┻━┻","(╯°□°）╯︵ ┻━┻",
@@ -45,11 +45,16 @@ namespace MatchGame
 
 			foreach (TextBlock textBlock in mainGrid.Children.OfType<TextBlock>())
 			{
-				int index = random.Next(animalEmoji.Count);
-				string nextEmoji = animalEmoji[index];
+				int index = random.Next(emoji.Count);
+				string nextEmoji = emoji[index];
 				textBlock.Text = nextEmoji;
-				animalEmoji.RemoveAt(index);
+				emoji.RemoveAt(index);
 			}
+
+		}
+
+		private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+		{
 
 		}
 	}
